@@ -23,7 +23,7 @@ Kubernetes simplifies the management of containerized applications by providing 
 
 #
 # K8 Architecture diagram:
-![k8diagram](https://github.com/JakeGillatt/Kubernetes/assets/129315605/70297efc-4984-456b-b38e-2b5b557294bf)
+![full-kubernetes-model-architecture](https://github.com/JakeGillatt/Kubernetes/assets/129315605/76e169b1-2147-4cd8-b880-823eb94ac85b)
 
 #
 # What are some of the benefits of using K8?
