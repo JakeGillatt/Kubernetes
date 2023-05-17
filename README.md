@@ -68,3 +68,40 @@ Salesforce: Salesforce, a leading customer relationship management (CRM) platfor
 Spotify: The popular music streaming service Spotify relies on Kubernetes to manage its complex and dynamic infrastructure. Kubernetes enables them to handle massive traffic and scale their services efficiently.
 
 Twitter: Twitter adopted Kubernetes to manage its microservices-based architecture. Kubernetes allows them to scale their infrastructure, manage deployments, and ensure high availability of their services.
+
+#
+# nginx-deployment.yml
+
+1. In VS Code create a new nginx-deployment.yml file
+2. Add the following code to the file:
+```
+apiVersion: apps/v1 # which api to use for deployment
+
+kind: Deployment # what kind of service/object do you want to create?
+
+# what would you like to call it - name the service/object
+
+
+metadata:
+  name: nginx-deployment
+spec:
+  selector: 
+    matchLabels:
+      app: nginx
+  replicas: 3
+
+  template:
+    metadata:
+      labels:
+        app: nginx
+    
+    spec: 
+      containers:
+      - name: nginx
+        image: jakegillatt/sparta-app:jake_app
+        ports:
+        - containerPort: 80
+```
+3. Run the command `kubectl create -f nginx-deploy.yml`
+4. Now run `kubectl get deploy`, you should see that 3/3 pods are running
+5. Use command `kubectl get pods` to see all of the individual pods
