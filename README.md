@@ -45,3 +45,22 @@ Storage Orchestration: Kubernetes has integrated storage orchestration capabilit
 Extensibility and Ecosystem: Kubernetes has a large and vibrant ecosystem with a wide range of third-party tools, extensions, and plugins. This allows you to extend Kubernetes functionality with additional features like monitoring, logging, security, and more, tailored to your specific needs.
 
 Community Support: Kubernetes has a large and active community of developers and users who contribute to its development, provide support, and share best practices. The community-driven nature of Kubernetes ensures that it continues to evolve, improve, and stay up-to-date with the latest advancements.
+
+#
+# Who is using K8?
+
+Kubernetes has gained significant adoption and is used by numerous major companies across various industries. Here are some notable companies that use Kubernetes:
+
+Google: Kubernetes was originally developed by Google and is still heavily used internally within the company for managing its vast infrastructure and workloads.
+
+Amazon: Amazon Web Services (AWS) offers Amazon Elastic Kubernetes Service (EKS) as a managed Kubernetes service. Many companies running their workloads on AWS utilize EKS, including popular brands like Netflix, Adobe, and SoundCloud.
+
+Microsoft: Microsoft provides Azure Kubernetes Service (AKS), a managed Kubernetes offering on the Azure cloud platform. Companies like Siemens, Accenture, and ASOS utilize AKS for their container orchestration needs.
+
+IBM: IBM offers IBM Cloud Kubernetes Service (IKS) as a managed Kubernetes service. Companies like Nestle, H&R Block, and Bosch use IKS for deploying and managing their containerized applications.
+
+Salesforce: Salesforce, a leading customer relationship management (CRM) platform, leverages Kubernetes for managing and scaling its infrastructure. They have a Kubernetes-based platform called Salesforce Heroku.
+
+Spotify: The popular music streaming service Spotify relies on Kubernetes to manage its complex and dynamic infrastructure. Kubernetes enables them to handle massive traffic and scale their services efficiently.
+
+Twitter: Twitter adopted Kubernetes to manage its microservices-based architecture. Kubernetes allows them to scale their infrastructure, manage deployments, and ensure high availability of their services.
