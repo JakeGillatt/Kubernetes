@@ -22,6 +22,10 @@ Kubernetes is an open-source container orchestration platform that automates the
 Kubernetes simplifies the management of containerized applications by providing a scalable and resilient platform. It abstracts the complexity of infrastructure management, allowing developers to focus on building and deploying applications, while operators can efficiently manage and scale the underlying infrastructure.
 
 #
+# K8 Architecture diagram:
+![k8diagram](https://github.com/JakeGillatt/Kubernetes/assets/129315605/70297efc-4984-456b-b38e-2b5b557294bf)
+
+#
 # What are some of the benefits of using K8?
 
 Here are some benefits of using Kubernetes:
