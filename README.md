@@ -70,7 +70,7 @@ Spotify: The popular music streaming service Spotify relies on Kubernetes to man
 Twitter: Twitter adopted Kubernetes to manage its microservices-based architecture. Kubernetes allows them to scale their infrastructure, manage deployments, and ensure high availability of their services.
 
 #
-# nginx-deployment.yml
+# Deploying nginx with docker
 
 1. In VS Code create a new nginx-deployment.yml file
 2. Add the following code to the file:
@@ -131,7 +131,71 @@ spec:
   type: NodePort # also use loadbalancer - for local use cluster
 ```
 5. Run the command `kubectl create -f nginx-service.yml`
-5. Now run `kubectl get pods`, you should see that both pods are running
-
+6. Now run `kubectl get pods`, you should see that the nginx pod is running
+7. Go to your browser and enter `localhost:30001` to see if nginx is running 
+ 
 #
-# 
+# Deploying the sparta app with Docker
+
+1. In VS Code create a new app-deployment.yml file
+2. Add the following code to the file:
+```
+apiVersion: apps/v1 # which api to use for deployment
+
+kind: Deployment # what kind of service/object do you want to create?
+
+# what would you like to call it - name the service/object
+
+
+metadata:
+  name: node-deployment
+spec:
+  selector: 
+    matchLabels:
+      app: node
+  replicas: 1
+
+  template:
+    metadata:
+      labels:
+        app: node
+    
+    spec: 
+      containers:
+      - name: node
+        image: jakegillatt/sparta-app:jake_app
+        ports:
+        - containerPort: 80
+```
+3. Run the command `kubectl create -f app-deploy.yml`
+4. Now create another YAML file called `app-service.yml` and add the following code:
+```
+---
+# select the type of API version and type of service
+apiVersion: v1
+kind: Service
+
+# metadata for name
+metadata:
+  name: node-svc
+  namespace: default # sre
+
+# specification to include poirts selector to connect to the
+spec: 
+  ports:
+  - nodePort: 30002 # range is 30000 - 32768
+    port: 3000
+
+    targetPort: 3000
+
+# define the selector and label to connect to nginx
+  selector:
+    app: node
+
+# creating a nodeport type of deployment
+  type: NodePort # also use loadbalancer - for local use cluster
+```
+5. Run the command `kubectl create -f app-service.yml`
+6. Now run `kubectl get pods`, you should see that the app pod is running
+7. Go to your browser and enter `localhost:30002` to see if the app is running 
+
