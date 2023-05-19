@@ -88,7 +88,7 @@ spec:
   selector: 
     matchLabels:
       app: nginx
-  replicas: 3
+  replicas: 1 # you can scale this in or out
 
   template:
     metadata:
@@ -98,10 +98,40 @@ spec:
     spec: 
       containers:
       - name: nginx
-        image: jakegillatt/sparta-app:jake_app
+        image: nginx
         ports:
         - containerPort: 80
 ```
 3. Run the command `kubectl create -f nginx-deploy.yml`
-4. Now run `kubectl get deploy`, you should see that 3/3 pods are running
-5. Use command `kubectl get pods` to see all of the individual pods
+4. Now create another YAML file called `nginx-service.yml` and add the following code:
+```
+---
+# select the type of API version and type of service
+apiVersion: v1
+kind: Service
+
+# metadata for name
+metadata:
+  name: nginx-svc
+  namespace: default # sre
+
+# specification to include poirts selector to connect to the
+spec: 
+  ports:
+  - nodePort: 30001 # range is 30000 - 32768
+    port: 80
+
+    targetPort: 80
+
+# define the selector and label to connect to nginx
+  selector:
+    app: nginx
+
+# creating a nodeport type of deployment
+  type: NodePort # also use loadbalancer - for local use cluster
+```
+5. Run the command `kubectl create -f nginx-service.yml`
+5. Now run `kubectl get pods`, you should see that both pods are running
+
+#
+# 
